@@ -19,7 +19,6 @@ export class PostListItemComponentComponent implements OnInit {
 	this.loveIts--;
   }
   onLike(){
-	console.log('Love it');
 	this.loveIts++;
   }
 }
