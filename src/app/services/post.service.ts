@@ -44,4 +44,19 @@ export class PostService{
         this.posts.splice(index, 1);
         this.emitPostSubject();
     }
+
+    addPost(title: string, content: string){
+        const post = {
+            id: 0,
+            title: '',
+            content: '',
+            loveIts: 0,
+            created_at: new Date()
+        }
+        post.title = title;
+        post.content = content;
+        this.posts.unshift(post);
+        this.emitPostSubject();
+
+    }
 }
