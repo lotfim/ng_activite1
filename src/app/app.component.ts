@@ -1,30 +1,26 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { PostService } from './services/post.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(private postService:PostService){
+
+  }	
+  ngOnInit(){
+	this.postSubscription = this.postService.postSubject.subscribe(
+		(posts: any[]) => {
+			this.posts = posts;
+		}
+	);
+	this.postService.emitPostSubject(); 
+  }
+  
   title = 'activite1';
-  posts = [
-	{
-		title: 'Mon premier post',
-		content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis',
-		loveIts: 0,
-		created_at: new Date()
-	},
-	{
-		title: 'Mon deuxième post',
-		content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis',
-		loveIts: 0,
-		created_at: new Date()
-	},
-	{
-		title: 'Encore un post',
-		content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis',
-		loveIts: 0,
-		created_at: new Date()
-	}
-  ]
+  posts : any[];
+  postSubscription: Subscription;
 }
