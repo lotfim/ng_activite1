@@ -1,4 +1,6 @@
-<div class="col-sm-8 col-sm-offset-2">
+
+<div class="col-sm-8 col-sm-offset-1">
+  <h1>Nouveau post</h1>
   <form [formGroup]="postForm" (ngSubmit)="onAddPost()">
     <div class="form-group">
       <label for="title">Titre</label>
@@ -9,6 +11,6 @@
       <textarea  id="content" class="form-control" formControlName="content">
       </textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">Soumettre</button>
   </form>
 </div>

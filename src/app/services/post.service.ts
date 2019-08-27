@@ -10,21 +10,18 @@ export class PostService{
     
     private posts = [
         {
-            id: 0,
             title: 'Mon premier post',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis',
             loveIts: 0,
             created_at: new Date()
         },
         {
-            id: 1,
             title: 'Mon deuxième post',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis',
             loveIts: 0,
             created_at: new Date()
         },
         {
-            id: 2,
             title: 'Encore un post',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis',
             loveIts: 0,
@@ -47,7 +44,6 @@ export class PostService{
 
     addPost(title: string, content: string){
         const post = {
-            id: 0,
             title: '',
             content: '',
             loveIts: 0,
